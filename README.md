@@ -72,12 +72,12 @@ Una vez completados estos pasos, el backend estará listo para ser utilizado.
 3. **Crear modelo:**
 
    ```
-   docker exec myapp-ub-grics php artisan make:model Nombre
+   docker exec myapp-ub-grics php artisan make:model Membres
    ```
 
 4. **Crear controlador:**
 
    ```
-   docker exec myapp-ub-grics php artisan make:controller NombreController --resource
+   docker exec myapp-ub-grics php artisan make:controller MembresController --resource
    ```
 
