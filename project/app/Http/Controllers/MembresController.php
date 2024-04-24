@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Membres;
 
 class MembresController extends Controller
 {
@@ -11,7 +12,8 @@ class MembresController extends Controller
      */
     public function index()
     {
-        //
+        $membres = Membres::paginate(4);
+        return view('membres.index', compact('membres'));
     }
 
     /**
@@ -19,7 +21,8 @@ class MembresController extends Controller
      */
     public function create()
     {
-        //
+        return view('membres.crear');
+
     }
 
     /**
@@ -27,7 +30,25 @@ class MembresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'image_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:400',
+            'cv_path' => 'required|file|mimes:pdf|max:400',
+            'links' => 'required',
+            'description' => 'required',
+        ]);
+        $membre = $request->all();
+
+        if ($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/';
+            $imagenMembres = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenMembres);
+            $membre['imagen'] = "$imagenMembres";
+        }
+        Membres::create($membre);
+        return redirect()->route('membres.index')->with('success', 'Membre creado correctamente.');
     }
 
     /**
@@ -41,9 +62,10 @@ class MembresController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Membres $membres)
     {
-        //
+        return view('membres.editar', compact('membres'));
+
     }
 
     /**
@@ -51,7 +73,27 @@ class MembresController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'image_path' => 'required|image|mimes:jpeg,png,jpg|max:400',
+            'cv_path' => 'required|file|mimes:pdf|max:400',
+            'links' => 'required',
+            'description' => 'required',
+        ]);
+        $membre = $request->all();
+        if ($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/';
+            $imagenMembres = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenMembres);
+            $membre['imagen'] = "$imagenMembres";
+        } else {
+            unset($membre['imagen']);
+
+        }
+        $membre->update($membre);
+        return redirect()->route('membres.index')->with('success', 'Membre actualizat correctament.');
     }
 
     /**
@@ -59,6 +101,7 @@ class MembresController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $membres = Membres::find($id);
+        return redirect()->route('membres.index')->with('success', 'Membre eliminat correctament.');
     }
 }
