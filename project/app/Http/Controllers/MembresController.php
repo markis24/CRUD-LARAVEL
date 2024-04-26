@@ -48,7 +48,7 @@ class MembresController extends Controller
             $membre['imagen'] = "$imagenMembres";
         }
         Membres::create($membre);
-        return redirect()->route('membres.index')->with('success', 'Membre creado correctamente.');
+        return redirect()->route('membres.index')->with('success', 'Membre creado correctamente.'),url;
     }
 
     /**
