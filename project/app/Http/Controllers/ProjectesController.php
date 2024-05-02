@@ -11,7 +11,6 @@ class ProjectesController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**

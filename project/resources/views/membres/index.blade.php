@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-blue-200 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-blue-300 overflow-hidden shadow-xl sm:rounded-lg">
                 <table class="table-fixed w-full">
                     <thead>
                     <tr class="bg-gray-800 text-white">
