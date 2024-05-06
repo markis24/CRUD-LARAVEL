@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Membres;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -11,7 +12,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Membres::paginate(4);
+        return view('articles.index', compact('articles'));
     }
 
     /**

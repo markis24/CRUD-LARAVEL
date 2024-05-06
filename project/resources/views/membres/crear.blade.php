@@ -90,7 +90,7 @@
                                     <p class='text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>
                                         Seleccione el curriculum</p>
                                 </div>
-                                <input name="imagen" id="imagen" type='file' class="hidden"/>
+                                <input name="cv" id="cv" type='file' class="hidden"/>
                             </label>
                         </div>
                     </div>
