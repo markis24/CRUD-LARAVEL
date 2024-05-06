@@ -21,8 +21,8 @@
                             <tr>
                                 <td class="hidden">{{ $projecte->id }}</td>
                                 <td class="w-1/8 px-2 py-1 text-center">{{ $projecte->title }}</td>
-                                <td class="w-1/8 px-2 py-1 text-center">{{ $projecte->text-projecte }}</td>
-                                <td class="w-1/8 px-2 py-2 text-center">{{ $projecte->text-resultat }}</td>
+                                <td class="w-1/8 px-2 py-1 text-center">{{ $projecte->text_projecte }}</td>
+                                <td class="w-1/8 px-2 py-2 text-center">{{ $projecte->text_resultat }}</td>
                                 <td class=" px-4 py-2">
                                     <div class="flex justify-center rounded-lg text-lg" role="group">
                                         <a href="{{ route('projecte.edit', $projecte->id) }}"
