@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Membres;
 use Illuminate\Http\Request;
 
-class ProjectesController extends Controller
+class articlesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $projectes = Membres::paginate(4);
+        return view('projectes.index', compact('projectes'));
     }
 
     /**
