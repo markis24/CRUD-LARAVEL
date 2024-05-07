@@ -10,10 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('projectes', function (Blueprint $table) {
             $table->id();
             $table->string('title', 150);
-            $table->text('text_article');
+            $table->text('text_projecte');
             $table->text('text_resultat');
             $table->timestamps();
         });

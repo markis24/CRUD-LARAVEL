@@ -15,3 +15,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/app/{any}', function () {
+    return view('app');
+})->where('any', '.*');

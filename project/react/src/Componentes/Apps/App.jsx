@@ -6,7 +6,7 @@ import Publicaciones from '../Publicaciones/Publicaciones';
 import Contacto from '../Contacto/Contacto';
 import './App.css';
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
@@ -20,5 +20,3 @@ function App() {
     </>
   );
 }
-
-export default App;
