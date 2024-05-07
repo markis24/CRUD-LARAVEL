@@ -14,15 +14,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                         <div class="grid grid-cols-1">
                             <label
-                                class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Nombre:</label>
-                            <input name="nombre" value="{{ $article->title }}"
+                                class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">TITULO:</label>
+                            <input name="title" value="{{ $article->title }}"
                                    class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent my-2"
                                    type="text" required/>
                         </div>
 
                         <div class="grid grid-cols-1 mb-8 ">
-                            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Descripción:</label>
-                            <input name="descripcion" value="{{ $article->text_article }}"
+                            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">RESUMEN ARTICULO:</label>
+                            <input name="text_article" value="{{ $article->text_article }}"
                                    class="py-4 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                                    type="text" required/>
                         </div>

@@ -13,14 +13,14 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                         <div class="grid grid-cols-1">
                             <label
-                                class="uppercase md:text-sm text-xs text-black-500 text-light font-semibold">Titulo</label>
-                            <input name="titulo"
+                                class="uppercase md:text-sm text-xs text-black-500 text-light font-semibold">TITULO</label>
+                            <input name="title"
                                    class="py-2 px-3 rounded-lg border-2 border-black-300 mt-1 focus:outline-none focus:ring-2 focus:ring-black-600 focus:border-transparent"
                                    type="text" required/>
                         </div>
                         <div class="grid grid-cols-1">
-                            <label class="uppercase md:text-sm text-xs text-black-500 text-light font-semibold">Texto</label>
-                            <input name="texto"
+                            <label class="uppercase md:text-sm text-xs text-black-500 text-light font-semibold">RESUMEN ARTICULO</label>
+                            <input name="text_article"
                                    class="py-2 px-3 rounded-lg border-2 border-black-300 mt-1 focus:outline-none focus:ring-2 focus:ring-black-600 focus:border-transparent"
                                    type="text" required/>
                         </div>

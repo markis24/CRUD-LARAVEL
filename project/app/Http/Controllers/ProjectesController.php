@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Membres;
+use App\Models\Articles;
 use Illuminate\Http\Request;
 
 class articlesController extends Controller
@@ -12,7 +12,7 @@ class articlesController extends Controller
      */
     public function index()
     {
-        $projectes = Membres::paginate(4);
+        $projectes = Articles::paginate(4);
         return view('projectes.index', compact('projectes'));
     }
 
@@ -21,7 +21,7 @@ class articlesController extends Controller
      */
     public function create()
     {
-        //
+        return view('projectes.crear');
     }
 
     /**
@@ -29,7 +29,16 @@ class articlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'text_projecte' => 'required',
+            'text_resultat' => 'required',
+        ]);
+
+        $projecte = $request->all();
+
+        Articles::create($projecte);
+        return redirect()->route('projectes.index')->with('success', 'Proyecto creado correctamente.');
     }
 
     /**
@@ -45,7 +54,7 @@ class articlesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('projectes.editar', compact('projecte'));
     }
 
     /**
@@ -53,7 +62,16 @@ class articlesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'text_projecte' => 'required',
+            'text_resultat' => 'required',
+        ]);
+
+        $data = $request->all();
+
+        $projecte->update($data);
+        return redirect()->route('projectes.index')->with('success', 'Proyecto actualizado correctamente.');
     }
 
     /**
@@ -61,6 +79,8 @@ class articlesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $projecte = Projectes::findOrFail($id);
+        $projecte->delete();
+        return redirect()->route('projectes.index')->with('success', 'Proyecto eliminado correctamente.');
     }
 }

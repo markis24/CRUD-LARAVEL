@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Membres;
+use App\Models\Articles;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -12,7 +12,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Membres::paginate(4);
+        $articles = Articles::paginate(4);
         return view('articles.index', compact('articles'));
     }
 
@@ -21,7 +21,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.crear');
     }
 
     /**
@@ -29,9 +29,15 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'title' => 'required',
+            'text_article' => 'required',
+        ]);
 
+        $article = $request->all();
+        Articles::create($article);
+        return redirect()->route('articles.index')->with('success', 'Articulo creado correctamente.');
+    }
     /**
      * Display the specified resource.
      */
@@ -45,7 +51,7 @@ class ArticlesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('articles.editar', compact('article'));
     }
 
     /**
@@ -53,7 +59,15 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'text_article' => 'required',
+        ]);
+
+        $data = $request->all();
+
+        $article->update($data);
+        return redirect()->route('articles.index')->with('success', 'Articulo actualizado correctamente.');
     }
 
     /**
@@ -61,6 +75,8 @@ class ArticlesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $article = Articles::findOrFail($id);
+        $article->delete();
+        return redirect()->route('articles.index')->with('success', 'Articulo eliminado correctamente.');
     }
 }
