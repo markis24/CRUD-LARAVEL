@@ -7,16 +7,17 @@ import Contacto from '../Contacto/Contacto';
 import './App.css';
 
 export default function App() {
-  return (
-    <>
-      <Header />
-      <div>
-        <Main_page id="main_page" />
-        <Membres id="miembros" />
-        <Projectes id="proyectos" />
-        <Publicaciones id="publicaciones" />
-        <Contacto id="contacto" />
-      </div>
-    </>
-  );
+    return (
+        <>
+            <Header/>
+            <div>
+                <Main_page id="main_page"/>
+                <Membres id="miembros"/>
+                <Projectes id="proyectos"/>
+                <Publicaciones id="publicaciones"/>
+                <Contacto id="contacto"/>
+            </div>
+        </>
+    );
 }
+

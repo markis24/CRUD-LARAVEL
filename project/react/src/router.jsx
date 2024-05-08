@@ -1,25 +1,17 @@
-import { createBrowserRouter } from "react-router-dom";
-import Contacto from "./Componentes/Contacto/Contacto.jsx";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Proyectos from "./Componentes/Proyectos/Proyectos.jsx";
 import App from "./Componentes/Apps/App.jsx";
 
-const routes = [
-    {
-        path: "/contacto",
-        element: <Contacto/>
-    },
-    {
-        path: "/App",
-        element: <App/>
-    },
-    {
-        path: "/proyectos",
-        element: <Proyectos/>
-    },
-];
+const AppRouter = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/proyectos" element={<Proyectos />} />
+      </Routes>
+    </Router>
+  );
+};
 
-const router = createBrowserRouter({
-  routes,
-});
-
-export default router;
+export default AppRouter;
