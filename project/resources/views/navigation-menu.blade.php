@@ -19,12 +19,12 @@
                         {{ __('Membres') }}
                     </x-nav-link>
 
-{{--                    <x-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('articles.index')">--}}
-{{--                        {{ __('Articles') }}--}}
-{{--                    </x-nav-link>--}}
-{{--                    <x-nav-link href="{{ route('projectes.index') }}" :active="request()->routeIs('projectes.index')">--}}
-{{--                        {{ __('Projectes') }}--}}
-{{--                    </x-nav-link>--}}
+                    <x-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('articles.index')">
+                        {{ __('Articles') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('projectes.index') }}" :active="request()->routeIs('projectes.index')">
+                        {{ __('Projectes') }}
+                    </x-nav-link>
 
                 </div>
             </div>

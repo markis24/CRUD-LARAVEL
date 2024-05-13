@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\Projectes;
 use Illuminate\Http\Request;
 
-class articlesController extends Controller
+class ProjectesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $projectes = Articles::paginate(4);
+        $projectes = Projectes::paginate(4);
         return view('projectes.index', compact('projectes'));
     }
 
@@ -33,11 +33,15 @@ class articlesController extends Controller
             'title' => 'required',
             'text_projecte' => 'required',
             'text_resultat' => 'required',
+        ], [
+            'title.required' => 'El título del proyecto es obligatorio.',
+            'text_projecte.required' => 'La descripción del proyecto es obligatoria.',
+            'text_resultat.required' => 'El resultado del proyecto es obligatorio.',
         ]);
 
         $projecte = $request->all();
 
-        Articles::create($projecte);
+        Projectes::create($projecte);
         return redirect()->route('projectes.index')->with('success', 'Proyecto creado correctamente.');
     }
 
@@ -52,7 +56,7 @@ class articlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Projectes $projecte)
     {
         return view('projectes.editar', compact('projecte'));
     }
@@ -60,7 +64,7 @@ class articlesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Projectes $projecte)
     {
         $request->validate([
             'title' => 'required',
@@ -77,9 +81,8 @@ class articlesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Projectes $projecte)
     {
-        $projecte = Projectes::findOrFail($id);
         $projecte->delete();
         return redirect()->route('projectes.index')->with('success', 'Proyecto eliminado correctamente.');
     }
