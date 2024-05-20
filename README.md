@@ -24,7 +24,7 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
 
 3. **Instalar Jetstream:**
 
-   Después de instalar las dependencias, ejecuta el siguiente comando para instalar Jetstream:
+   Si deseas habilitar el modo claro, que esta por defecto utiliza este comando en su lugar:
 
    ```
    php artisan jetstream:install livewire
@@ -50,7 +50,7 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
    Finalmente, ejecuta las migraciones de la base de datos para crear las tablas necesarias. Ejecuta el siguiente comando:
 
    ```
-   php artisan migrate
+   docker exec myapp-ub-grics php artisan migrate
    ```
 
 Una vez completados estos pasos, el backend estará listo para ser utilizado.
